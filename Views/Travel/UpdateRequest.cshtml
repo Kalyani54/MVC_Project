@@ -1,0 +1,59 @@
+﻿@model TravelRequest
+
+<h2>Edit Travel Request</h2>
+<br />
+
+@if (Model != null)
+{
+    <div>
+        <form method="post">
+
+            <div class="form-group">
+                <label for="RequestId">Request ID:</label>
+                <input asp-for="RequestId" value="@Model.RequestId" class="form-control" name="RequestId" readonly />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="EmployeeId">Select Employee:</label>
+                @Html.DropDownListFor(model => model.EmployeeId, (SelectList)ViewBag.Employees, "Select Employee", new { @class = "form-control" })
+            </div>
+
+
+            <div class="form-group">
+                <label for="FromLocation">From Location:</label>
+                <input asp-for="FromLocation" value="@Model.FromLocation" class="form-control" name="FromLocation" />
+                <span asp-validation-for="FromLocation" style="color:red; font-size:small"></span>
+            </div>
+            <div class="form-group">
+                <label for="ToLocation">To Location:</label>
+                <input asp-for="ToLocation" value="@Model.ToLocation" class="form-control" name="ToLocation" />
+                <span asp-validation-for="ToLocation" style="color:red; font-size:small"></span>
+            </div>
+            <div class="form-group">
+                <label for="RequestDate">Request Date:</label>
+                <input asp-for="RequestDate" class="form-control" />
+                <span asp-validation-for="RequestDate" style="color: red; font-size: small"></span>
+            </div>
+
+            <br />
+            <div asp-validation-summary="All" style="color:red; font-size:small"></div>
+            <hr />
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+}
+@section Scripts{
+    @{
+        Html.RenderPartial("_ValidationScriptsPartial");
+    }
+}
+
+<style>
+    .fixed-top {
+        position: fixed;
+        top: 0;
+        background-color: white;
+        z-index: 1;
+        width: 100%;
+    }
+</style>

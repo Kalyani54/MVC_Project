@@ -1,0 +1,24 @@
+﻿@model TravelRequest
+
+<center><h2>Approve Travel Request</h2></center>
+<br />
+
+<div>
+    <form method="post" asp-action="ApproveTravelRequest">
+        <div class="form-group">
+            <input type="hidden" name="RequestId" asp-for="RequestId" />
+            <label for="ApproveStatus">Approve Status:</label>
+
+            <select asp-for="ApproveStatus" name="ApproveStatus">
+                <option value="">Change Approve Status</option>
+                <option value="Approved">Approved</option>
+                <option value="NotApproved">NotApproved</option>
+
+            </select>
+        </div>
+        <br />
+        <div>
+            <button class="btn btn-outline-success" type="submit">Submit</button>
+        </div>
+    </form>
+</div>

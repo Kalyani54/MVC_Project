@@ -1,0 +1,49 @@
+﻿@model Employee
+
+<h2>Add a New Employee</h2>
+<br />
+<div>
+    <form method="post">
+
+        <div class="form-group">
+            <label for="FirstName">FirstName:</label>
+            <input asp-for="FirstName" class="form-control" name="FirstName" />
+            <span asp-validation-for="FirstName" style="color:red; font-size:small"></span>
+        </div>
+        <div class="form-group">
+            <label for="LastName">LastName:</label>
+            <input asp-for="LastName" class="form-control" name="LastName" />
+            <span asp-validation-for="LastName" style="color:red; font-size:small"></span>
+        </div>
+        <div class="form-group">
+            <label for="Contact">Contact:</label>
+            <input asp-for="Contact" class="form-control" name="Contact" />
+            <span asp-validation-for="Contact" style="color:red; font-size:small"></span>
+        </div>
+        <div class="form-group">
+            <label for="Dept">Dept:</label>
+            <input asp-for="Dept" class="form-control" name="Dept" />
+            <span asp-validation-for="Dept" style="color:red; font-size:small"></span>
+        </div>
+        <div class="form-group">
+            <label for="Address">Address:</label>
+            <input asp-for="Address" class="form-control" name="Address" />
+            <span asp-validation-for="Address" style="color:red; font-size:small"></span>
+        </div>
+        <div class="form-group">
+            <label for="Dob">DOB:</label>
+            <input asp-for="Dob" class="form-control" name="Dob" />
+            <span asp-validation-for="Dob" style="color:red; font-size:small"></span>
+        </div>
+        <br />
+        <div asp-validation-summary="All" style="color:red; font-size:small"></div>
+        <hr />
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+@section Scripts{
+    @{
+        Html.RenderPartial("_ValidationScriptsPartial");
+    }
+}

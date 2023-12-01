@@ -1,0 +1,140 @@
+﻿
+
+@model IEnumerable<Employee>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Employee List</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            margin: 20px;
+        }
+
+        h2 {
+            color: #343a40;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #dee2e6;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007bff;
+            color: #ffffff;
+        }
+
+        tr {
+            transition: background-color 0.3s;
+        }
+
+            tr:hover {
+                background-color: #f1f1f1;
+            }
+
+        button {
+            margin: 5px;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+            button:hover {
+                color: #0056b3;
+            }
+
+        hr {
+            border: 1px solid #007bff;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007bff;
+        }
+
+            a:hover {
+                color: #0056b3;
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Employee List</h2>
+        <br />
+        <hr />
+        <button class="btn btn-outline-primary"><a asp-action="AddEmployee" style="color:black;">Add Employee</a></button>
+
+        @{
+            @if (Model != null)
+            {
+                <table class="table table-striped">
+
+                    <tr>
+                        <td>Employee id</td>
+                        <td>Firstname</td>
+                        <td>Lastname</td>
+                        <td>Contact</td>
+                        <td>Dept</td>
+                        <td>Address</td>
+                        <td>DOB</td>
+                        <td>Edit</td>
+                        <td>Delete</td>
+                    </tr>
+
+                    @foreach (var e in Model)
+                    {
+                        <tr>
+                            <td>@e.EmployeeId</td>
+                            <td>@e.FirstName</td>
+                            <td>@e.LastName</td>
+                            <td>@e.Contact</td>
+                            <td>@e.Dept</td>
+                            <td>@e.Address</td>
+                            <td>@e.Dob</td>
+
+                            <td>
+                                <button class="btn btn-info-outline">
+                                    <a asp-action="UpdateEmployee" asp-route-EmployeeId=@e.EmployeeId>Update</a>
+                                </button>
+                            </td>
+
+                            <td>
+                                <button class="btn btn-outline-danger">
+                                    <a asp-action="DeleteEmployee" asp-route-EmployeeId=@e.EmployeeId>Delete</a>
+                                </button>
+                            </td>
+
+                        </tr>
+                    }
+                </table>
+            }
+            else
+            {
+                <h2>No Employee available</h2>
+            }
+
+            <hr />
+
+        }
+
+        <hr />
+    </div>
+</body>
+</html>
+
+
+
+
+
+

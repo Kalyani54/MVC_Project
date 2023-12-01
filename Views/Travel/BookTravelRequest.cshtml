@@ -1,0 +1,25 @@
+﻿@model TravelRequest
+
+<center><h2>Book Travel Request</h2></center>
+<br />
+
+<div>
+    <form method="post">
+
+        <div class="form-group">
+            <input type="hidden" name="RequestId" asp-for="RequestId" />
+            <label for="BookingStatus">Book Status:</label>
+            <select asp-for="BookingStatus" name="BookingStatus">
+                <option value="">Change Booking Status</option>
+                <option value="Booked">Booked</option>
+                <option value="NotBooked">NotBooked</option>
+
+            </select>
+        </div>
+
+        <br />
+        <div>
+            <button class="btn btn-outline-success" type="submit">Submit</button>
+        </div>
+    </form>
+</div>
